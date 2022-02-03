@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>SISTEMA EVERIS</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body class="card-body">
+	<div class="card text-white bg-dark mb-3">
+		<div class="card-header">Jugador añadido satisfactoriamente.</div>
+		<div class="card-body">
+			<form>
+				<div class="form-group">
+					<label>Name</label> <input type="text" disabled="disabled"
+						class="form-control" th:value="${newPlayer.name}">
+				</div>
+				<div class="form-group">
+					<label>First Surname</label> <input type="text" disabled="disabled"
+						class="form-control" th:value="${newPlayer.firstSurname}">
+				</div>
+				<div class="form-group">
+					<label>Second Surname</label> <input type="text"
+						disabled="disabled" class="form-control"
+						th:value="${newPlayer.secondSurname}">
+				</div>
+				<div class="form-group">
+					<label>Scored goals</label> <input type="text" disabled="disabled"
+						class="form-control" th:value="${newPlayer.scoredGoals}">
+				</div>
+				<div class="form-group">
+					<label>Age</label> <input type="text" disabled="disabled"
+						class="form-control" th:value="${newPlayer.age}">
+				</div>
+				<a th:href="@{./show}">VOLVER</a>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

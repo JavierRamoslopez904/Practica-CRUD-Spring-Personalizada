@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration debug="false">
+
+	<property name="nombre" value="Proyecto Javier Ramos Lopez" />
+
+	<!-- Appender -->
+	<appender name="JaviLogger"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+		<!-- Etiqueta File, se encargará de especificar la ruta a la cuál se van 
+			a dirigir los ficheros con la información de las trazas -->
+		<file>C://dev//logs//elb1JRL-${nombre}.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+
+			<!-- En esta etiqueta de fileNamePattern al final podemos poner .zip para 
+				que aparezca -->
+			<fileNamePattern>
+				C://dev//logs//elb1JRL-${nombre}<!--OTRA OPCIÓN : -${fecha} -->
+				.%i.log.zip
+			</fileNamePattern>
+
+			<!-- Estas etiquetas servirán para determinar las veces que aparecerán, 
+				como mínimo o como máximo, los ficheros creados en la ruta anteriormente 
+				especificada -->
+			<minIndex>1</minIndex>
+			<maxIndex>3</maxIndex>
+		</rollingPolicy>
+
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>50KB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -
+				[%method]-%msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- Muestra las trazas INFO -->
+	<root level="info">
+		<appender-ref ref="JaviLogger" />
+	</root>
+</configuration>

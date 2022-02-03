@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>PROYECTO JRL</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body class="card-body">
+	<div class="card-header">Añadido de jugadores</div>
+	<div class="card-body">
+		<form th:action="@{./aniadir}" th:object="${newPlayer}" method="POST">
+			<div class="form-group">
+				<label>Nombre</label> <input name="name" type="text"
+					required="required" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Primer apellido</label> <input name="firstSurname"
+					type="text" required="required" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="inpModel">Segundo apellido</label> <input
+					required="required" type="text" class="form-control"
+					name="secondSurname">
+			</div>
+			<div class="form-group">
+				<label for="inpModel">Goles anotados</label> <input
+					required="required" type="text" class="form-control"
+					name="scoredGoals">
+			</div>
+			<div class="form-group">
+				<label for="inpModel">Edad</label> <input required="required"
+					type="text" class="form-control" name="age">
+			</div>
+			<button type="submit" name="createPlayer" class="btn btn-success">Crear</button>
+		</form>
+	</div>
+</body>
+</html>

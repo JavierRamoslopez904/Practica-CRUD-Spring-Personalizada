@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>PROYECTO JRL</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body class="card-body">
+	<div>
+		<table class="table table-striped table-dark">
+			<thead class="thead-light">
+				<tr>
+					<th scope="col">ID PLAYER</th>
+					<th scope="col">NAME</th>
+					<th scope="col">FIRST SURNAME</th>
+					<th scope="col">SECOND SURNAME</th>
+					<th scope="col">SCORED GOALS</th>
+					<th scope="col">AGE</th>
+					<th scope="col">TEAM</th>
+					<th><a th:href="@{./addNewPlayer}">NUEVO JUGADOR</a></th>
+				</tr>
+			</thead>
+			<tbody>
+				<th:block th:each="players : ${player}">
+					<tr>
+						<td scope="row" th:text="${players.idPlayer}" />
+						<td scope="row" th:text="${players.name}" />
+						<td scope="row" th:text="${players.firstSurname}" />
+						<td scope="row" th:text="${players.secondSurname}" />
+						<td scope="row" th:text="${players.scoredGoals}" />
+						<td scope="row" th:text="${players.age}" />
+						<td scope="row" th:text="${players.team}" />
+						<td><form action="delete" method="post">
+								<button type="submit" id="btnDropPlayer" name="idPlayer"
+									th:value="${players.idPlayer}">DELETE</button>
+							</form></td>
+					</tr>
+				</th:block>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
